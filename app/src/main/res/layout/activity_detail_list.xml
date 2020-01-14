@@ -136,6 +136,16 @@
                     android:fontFamily="@font/montserrat_semibold"
                     android:text="Tambah"
                     android:textAllCaps="false"
+                    android:layout_marginBottom="5dp"
+                    android:visibility="gone"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/mbBatal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:text="Batal"
+                    android:textAllCaps="false"
                     android:visibility="gone"/>
 
             </LinearLayout>

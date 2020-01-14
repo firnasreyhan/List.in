@@ -50,4 +50,20 @@ public interface Api {
 
     @FormUrlEncoded
     @POST("edit_list.php")
+    Call<BaseResponse> edit(
+            @Field("id_list") String id_list,
+            @Field("judul") String judul,
+            @Field("keterangan") String keterangan,
+            @Field("tanggal") String tanggal,
+            @Field("jam") String jam,
+            @Field("kategori") String kategori,
+            @Field("ulang") int ulang,
+            @Field("jenis_ulang") String jenisUlang
+    );
+
+    @FormUrlEncoded
+    @POST("delete_list.php")
+    Call<BaseResponse> delete(
+            @Field("id_list") String id_list
+    );
 }

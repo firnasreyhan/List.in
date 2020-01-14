@@ -28,7 +28,11 @@ import retrofit2.Response;
 
 public class ListFragment extends Fragment {
 
+    private Api api;
+    private LoginResponse.User user;
+
     private RecyclerView rvList;
+    private TextView tvKosong;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,12 +40,17 @@ public class ListFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_list, container, false);
 
-        Api api = ApiClient.getClient();
-        LoginResponse.User user = AppPreference.getUser(getContext());
-
-        TextView tvKosong = view.findViewById(R.id.tvKosong);
+        api = ApiClient.getClient();
+        user = AppPreference.getUser(getContext());
+        tvKosong = view.findViewById(R.id.tvKosong);
         rvList = view.findViewById(R.id.rvList);
 
+        getData();
+
+        return view;
+    }
+
+    public void getData() {
         api.list(user.email).enqueue(new Callback<ListResponse>() {
             @Override
             public void onResponse(Call<ListResponse> call, Response<ListResponse> response) {
@@ -60,12 +69,16 @@ public class ListFragment extends Fragment {
                 Log.e("list", t.getMessage());
             }
         });
-
-        return view;
     }
 
     public void setRvList(ArrayList<ListResponse.ListData> list) {
         rvList.setLayoutManager(new LinearLayoutManager(getContext()));
         rvList.setAdapter(new ListAdapter(list));
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getData();
     }
 }
