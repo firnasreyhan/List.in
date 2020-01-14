@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#920092</color>
+    <color name="colorPrimaryDark">#610061</color>
+    <color name="colorAccent">#FF00FF</color>
+    <color name="colorRed">#920092</color>
+    <color name="colorRedNeon">#FF03FF</color>
+    <color name="colorRedLight">#E253E2</color>
+
+    <color name="colorRedKategori">#FF0000</color>
+    <color name="colorGreenKategori">#00FF00</color>
+    <color name="colorBlueKategori">#0000FF</color>
+</resources>
